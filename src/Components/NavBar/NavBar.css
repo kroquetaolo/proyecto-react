@@ -2,36 +2,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.4rem;
 }
-.navBarContainer ul {
+.navBarContainer img {
+    height: 40px;
+}
+.navBarContainer ul {   
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
     list-style-type: none;
-    background-color: #2C2C2C;
-    border: solid 1px #FFFAFA;
+    background-color: #202020;
     border-top: none;
     border-radius: 0 0 20px 20px;
     padding: 0 50px;
+    -webkit-box-shadow: 0px 10px 17px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 17px 7px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 17px 7px rgba(0,0,0,0.75);
 }
 
 .navBarContainer ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: transform .2s ease;
-    padding: 15px 20px;
 }
 .navBarContainer ul li a {
     color: #A1A1A1;
     text-decoration: none;
     font-size: 1.3em;
+    padding: 15px 20px;
 }
 
 .navBarContainer ul li:hover a{
     color: #FFFAFA;
+    text-shadow: 0px 0px 10px rgba(40,220,200,0.57);
 }
 
 .navBarContainer ul li:hover {
     transform: scale(105%);
-}
-
-.cartIcon {
-    padding-top: 100px;
 }
