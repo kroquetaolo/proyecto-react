@@ -1,13 +1,10 @@
-import './App.css';
-import Project from './Components/Product';
+import NavBar from './Components/NavBar/NavBar';
 
 function App() {
   return (
-    <div>
-      <Project name='Saludos'/>
-      <Project name='si'/>
-      <Project name='funciona'/>
-    </div>
+    <>
+      <NavBar/>
+    </>
   );
 }
 

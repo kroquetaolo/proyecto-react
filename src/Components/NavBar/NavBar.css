@@ -1,0 +1,37 @@
+.navBarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navBarContainer ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    background-color: #2C2C2C;
+    border: solid 1px #FFFAFA;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    padding: 0 50px;
+}
+
+.navBarContainer ul li {
+    transition: transform .2s ease;
+    padding: 15px 20px;
+}
+.navBarContainer ul li a {
+    color: #A1A1A1;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+.navBarContainer ul li:hover a{
+    color: #FFFAFA;
+}
+
+.navBarContainer ul li:hover {
+    transform: scale(105%);
+}
+
+.cartIcon {
+    padding-top: 100px;
+}
