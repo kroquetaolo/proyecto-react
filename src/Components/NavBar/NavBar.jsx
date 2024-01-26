@@ -1,6 +1,7 @@
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const NavBar = () => {
     let cartItemsAmount = 0;
     return (
@@ -14,6 +15,8 @@ const NavBar = () => {
                 <li><a href="#contacto">Contactanos</a></li>
                 <li><a href="#cart"><CartWidget amount={cartItemsAmount}/></a></li>
             </ul>
+            
+            <FontAwesomeIcon icon="fa-solid fa-barcode" />
         </div>
     )
 }
