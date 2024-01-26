@@ -6,6 +6,7 @@ function App() {
     <>
       <NavBar/>
       <ItemListContainer greeting='Bienvenidos a Audiorack' message='ventas de racks para equipos de audio'/>
+      <ItemListContainer greeting='Bienvenidos a Audiorack' message='ventas de racks para equipos de audio'/>
     </>
   );
 }
