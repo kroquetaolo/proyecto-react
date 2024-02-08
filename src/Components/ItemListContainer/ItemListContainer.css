@@ -8,7 +8,6 @@
         'content content content content content categories'
         'content content content content content categories';
 }
-
 .content {
     grid-area: content;
     display: flex;

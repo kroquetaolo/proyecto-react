@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import './ItemDetailContainer.css'
 const ItemDetailContainer = () => {
     const { itemID } = useParams();
     const [product, setProduct] = useState([]);
@@ -19,24 +20,27 @@ const ItemDetailContainer = () => {
             .catch((err) => console.error(err));
     }, [itemID]);
     return (
-        <React.Fragment>
-            <div className='item'>
-                <div className='back'><Link to={`/category/${product.category}`}> VOLVER  </Link></div>
-                <div className='item-img'>
+        <div className='item-detail-container'>
+            <div className='back'><Link to={`/category/${product.category}`}> ◀ GO BACK  </Link></div>
+            <div className='item-detail'>
+                <div className='item-detail-img'>
                     <img
                         src={product.image}
                         alt='product image'
                     />
                 </div>
-                <div className='item-title'>
+                <div className='item-detail-title'>
                     <h3>{product.title}</h3>
-                    <p>{product.description}</p>
                 </div>
-                <div className='item-category'>{product.category}</div>
-                <div className='item-cart'>Add to cart</div>
-                <div className='item-price'>${product.price}</div>
+                <div className='item-detail-category'>{product.category}</div>
+                <p className='item-detail-description'>{product.description}</p>
+                <div className='item-detail-price'>
+                    <p>Price:</p>
+                    <p>${product.price}</p>
+                </div>
+                <div className='item-detail-cart'>Add to cart</div>
             </div>
-        </React.Fragment>
+        </div>
     );
 };
 
