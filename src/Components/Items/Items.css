@@ -1,0 +1,103 @@
+.item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 0.1fr);
+    grid-template-areas:
+        'item-img item-img'
+        'item-title item-title'
+        'item-category item-category'
+        'item-price item-cart';
+    width: 350px;
+    margin: 20px 20px;
+
+    -webkit-box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
+
+    border: 1px solid #a1a1a150;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+}
+
+.item-img {
+    grid-area: item-img;
+    height: 350px;
+    width: 300px;
+    overflow: hidden;
+    justify-self: center;
+    align-self: center;
+    border-radius: 12px;
+    margin: 20px 0px;
+}
+
+.item-img img {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    object-fit: scale-down;
+}
+
+.item-title {
+    grid-area: item-title;
+    height: 100px;
+    margin: 0 20px 10px 20px;
+    cursor: default;
+}
+
+.item-title h3 {
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+
+
+.item-title a { /* Read More */
+    text-decoration: none;
+    color: #eeeeee;
+    text-transform: capitalize;
+}
+
+.item-title p {
+    color: #a1a1a1;
+}
+.item-category {
+    grid-area: item-category;
+    justify-self: left;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 24px;
+    border: 1px solid #a1a1a150;
+    background-color: #1a1a1a;
+    text-transform: capitalize;
+    cursor: default;
+}
+
+.item-price {
+    grid-area: item-price;
+    justify-self: left;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.item-price p:nth-child(1) {
+    color: #a1a1a1;
+}
+
+.item-price p:nth-child(2) {
+    font-weight: bold;
+}
+
+.item-cart {
+    grid-area: item-cart;
+    justify-self: right;
+    align-self: center;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    background-color: #28dcc891;
+    padding: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+}

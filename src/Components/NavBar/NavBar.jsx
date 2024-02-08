@@ -1,20 +1,19 @@
+import { Link } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
+import logo from '../../assets/logo.png'
 
 const NavBar = () => {
-    let cartItemsAmount = 0;
+
     return (
-        <div className='navBarContainer'>
-            <ul>
-                <img src="logo.png" alt="logo"/>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#racks">Racks</a></li>
-                <li><a href="#muebles">Muebles</a></li>
-                <li><a href="#redes">Redes Sociales</a></li>
-                <li><a href="#contacto">Contactanos</a></li>
-                <li><a href="#cart"><CartWidget amount={cartItemsAmount}/></a></li>
-            </ul>
-        </div>
+        <header className='navBarContainer'>
+            <div className='navBarLogo'>
+                <Link to='/'> <img src={logo} alt="logo"/> </Link>
+                <Link className='navBarLogoText' to='/'> Unique Nock </Link>
+            </div>
+            <Link to='/card/' className="cartIcon"> <p className='cartNumber'>0</p> <CartWidget/></Link>
+            
+        </header>
     )
 }
 export default NavBar

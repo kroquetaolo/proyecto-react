@@ -1,45 +1,52 @@
 .navBarContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    background-color: #111111;
     margin-bottom: 1.4rem;
+    width: 100%;
+    padding: 0 20px;
+}
+.navBarLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navBarLogoText {
+    text-decoration: none;
+    color: #a1a1a1;
+    font-size: 1.6em;
+    padding-left: 20px;
 }
 .navBarContainer img {
-    height: 40px;
+    height: 80px;
+    border-radius: 35%;
+    padding: 5px;
 }
-.navBarContainer ul {   
+.cartIcon {
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
-    flex-direction: row;
-    list-style-type: none;
-    background-color: #202020;
-    border-top: none;
-    border-radius: 0 0 20px 20px;
-    padding: 0 50px;
-    -webkit-box-shadow: 0px 10px 17px 7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 10px 17px 7px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 17px 7px rgba(0,0,0,0.75);
-}
-
-.navBarContainer ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform .2s ease;
-}
-.navBarContainer ul li a {
-    color: #A1A1A1;
+    color: #a1a1a1;
     text-decoration: none;
-    font-size: 1.3em;
-    padding: 15px 20px;
+    font-size: 1.6em;
+    transition: transform 0.2s ease;
 }
-
-.navBarContainer ul li:hover a{
-    color: #FFFAFA;
-    text-shadow: 0px 0px 10px rgba(40,220,200,0.57);
+.cartIcon svg {
+    border: 1px solid rgba(40, 220, 200, 0.57);
+    margin: 5px;
+    border-radius: 8px;
+    padding: 12px;
+    height: 48px;
+    width: 48px;
 }
-
-.navBarContainer ul li:hover {
-    transform: scale(105%);
+.cartNumber {
+    font-size: 0.75em;
+    transform: translate(16px, -20px);
+    background-color: #a1a1a1;
+    color: #202020;
+    padding: 0 6px;
+    border-radius: 10px;
 }
