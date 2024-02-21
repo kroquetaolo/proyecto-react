@@ -1,6 +1,10 @@
 :root {
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  --toastify-color-progress-warning: #28dcc8;
+  --toastify-color-progress-error: #dc2828;
+  --toastify-icon-color-warning: #28dcc8;
+  --toastify-icon-color-error: #dc2828;
 }
 
 *{

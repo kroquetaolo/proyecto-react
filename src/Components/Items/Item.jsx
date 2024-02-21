@@ -1,17 +1,43 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { Link } from "react-router-dom";
 import { CartContext } from '../context/cartContext'
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { AiOutlineStop } from "react-icons/ai";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Item = ({ itemProduct }) => {
     const {addItem, getQuantity, getMaxStock, isInCart} = useContext(CartContext);
+    const [notificationActive, setNotificationActive] = useState(false);
     const shortText = useMemo(() => (texto, int) => {
         return texto.length > int ? `${texto.substring(0, int)}...` : texto;
     }, []);
-    const itemNotInCart = () => toast("Item is not in cart");
+    const itemNotInCart = () => {
+        if(!notificationActive){toast.warn("Item is not in cart", {
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            onClose: () => setNotificationActive(false)
+        });
+        setNotificationActive(true);
+    }}
+    const maxStockReach = () => {
+        if(!notificationActive){toast.error("Maximum stock reached", {
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            onClose: () => setNotificationActive(false)
+        });
+        setNotificationActive(true);
+    }}
 
     return (
         <div className='item'>
@@ -28,7 +54,7 @@ const Item = ({ itemProduct }) => {
             
             <div className='item-cart'>
                 {getQuantity(itemProduct) == getMaxStock() ?
-                    <button className='item-cart-redbutton'> <AiOutlineStop/> </button>
+                    <button className='item-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
                     :
                     <button onClick={() => addItem(itemProduct, 1)}> <FaPlus/> </button>
                 }
@@ -38,18 +64,6 @@ const Item = ({ itemProduct }) => {
                     :
                     <button onClick={() => addItem(itemProduct, -1)}> <FaMinus/> </button>
                 }
-                <ToastContainer 
-                    position="top-right"
-                    autoClose={1000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick={false}
-                    rtl={false}
-                    pauseOnFocusLoss={false}
-                    draggable={false}
-                    pauseOnHover={false}
-                    theme="light"
-                />
             </div>
         </div>
     );
