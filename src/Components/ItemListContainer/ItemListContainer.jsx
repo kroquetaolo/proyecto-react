@@ -15,6 +15,7 @@ const ItemListContainer = () => {
             .then((data) => {
                 if (categoryID === undefined) {
                     setProducts(data);
+                    console.log("Productos establecidos correctamente");
                 } else {
                     const dataFilter = data.filter((item) => {
                         return item.category === categoryID;

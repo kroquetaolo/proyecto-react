@@ -6,16 +6,34 @@ import './Items.css'
 
 const ItemsList = ({ productsList }) => {
     const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products/categories')
         .then(res => res.json())
-        .then(data => {setCategories(data)})
+        .then(data => {
+            setCategories(data)
+            console.log("Categorias cargadas");
+        })
         .catch((err) => console.error(err));
     },[]);
 
+    const handleCategoryClick = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 600);
+    };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 600);
+    },[])
+
     return (
         <React.Fragment>
+            { loading ? <span className="loader"></span> :
             <div className='content'>
                 {productsList.map((product) => (
                     <React.Fragment key={product.id}>
@@ -23,13 +41,14 @@ const ItemsList = ({ productsList }) => {
                     </React.Fragment>
                 ))}
             </div>
+            }
             <nav className='categories'>
                 <ul>
                     <li><BiCategory /> Categories:</li>
-                    <li><NavLink to={'/'}>All</NavLink></li>
+                    <li><NavLink onClick={handleCategoryClick} to={'/'}>All</NavLink></li>
                     {categories.map((category) => (
                         <li key={category}>
-                            <NavLink to={`/category/${category}`}> {category} </NavLink>
+                            <NavLink to={`/category/${category}`} onClick={handleCategoryClick}>{category}</NavLink>
                         </li>
                     ))}
                 </ul>

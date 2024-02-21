@@ -1,6 +1,7 @@
 .itemListContainer {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    height: 100%;
+    grid-template-columns: repeat(5, 1fr) 1.3fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 0px 0px;
     grid-template-areas:
@@ -8,18 +9,25 @@
         'content content content content content categories'
         'content content content content content categories';
 }
+
 .content {
     grid-area: content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 10%;
 }
+
 .categories {
+    position: fixed;
+    right: 0;
+    top: 10%;
     grid-area: categories;
     margin-top: 20px;
     margin-right: 20px;
     width: 275px;
 }
+
 .categories ul {
     display: flex;
     justify-content: center;
@@ -28,7 +36,6 @@
     flex-direction: column;
     list-style-type: none;
     background-color: #202020;
-    
     border: 1px solid #a1a1a150;
     border-radius: 12px;
     -moz-border-radius: 12px;
@@ -39,12 +46,15 @@
     -moz-box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
 }
+
 .categories ul li {
     height: 48px;
     width: 100%;
-    background: rgb(45,45,45);
-    background: linear-gradient(90deg, rgb(37, 37, 37) 0%, rgba(255,255,255,0) 75%); 
+    padding-left: 20px;
+    background: rgb(45, 45, 45);
+    background: linear-gradient(90deg, rgb(37, 37, 37) 0%, rgba(255, 255, 255, 0) 75%);
 }
+
 .categories ul li:nth-child(1) {
     display: flex;
     align-items: center;
@@ -57,26 +67,67 @@
 .categories ul li:nth-child(1) svg {
     margin: 0 10px;
     font-size: 1.25em;
-    color: rgba(40, 220, 200, 0.57);
+    color: #28dcc891;
 }
+
 .categories ul li a {
+    position: relative;
     display: flex;
     align-items: center;
     color: #a1a1a1;
     text-decoration: none;
     font-size: 1.3em;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     height: 100%;
-    width: 100%;
     text-transform: capitalize;
-    
+    transition: color 0.2s ease-in;
+}
+.active::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background-color: #28dcc891;
+    width: 3px;
+    margin-left: -20px;
+    bottom: 0;
+    height: 100%;
+    animation: expandHeight 0.2s ease-in forwards;
 }
 
-.active {
-    border-left: 3px solid rgba(40, 220, 200, 0.57);
+@keyframes expandHeight {
+    from {
+        top: 100%;
+        height: 0;
+    }
+    to {
+        top: 0;
+        height: 100%;
+    }
 }
 
-.categories ul li:hover a, .categories ul li a.active {
+.categories ul li a {
+    position: relative;
+    z-index: 1;
+}
+
+.categories ul li a::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    background-color: #28dcc891;
+    width: 0;
+    bottom: 0;
+    height: 2px;
+    transition: width 0.2s ease-in;
+    background: linear-gradient(90deg, #28dcc891 0%, #ffffff00 75%);
+}
+
+.categories ul li:hover a:not(.active)::after {
+    width: 110%;
+}
+
+.categories ul li:hover a,
+.categories ul li a.active {
     color: #fffafa;
     text-shadow: 0px 0px 10px rgba(40, 220, 200, 0.57);
 }
