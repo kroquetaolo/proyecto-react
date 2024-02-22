@@ -1,6 +1,6 @@
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { AiOutlineStop } from "react-icons/ai";
 import { toast } from 'react-toastify';
@@ -9,35 +9,35 @@ import 'react-toastify/dist/ReactToastify.css';
 const Item = ({ itemProduct }) => {
     const {addItem, getQuantity, getMaxStock, isInCart} = useContext(CartContext);
     const [notificationActive, setNotificationActive] = useState(false);
-    const shortText = useMemo(() => (texto, int) => {
-        return texto.length > int ? `${texto.substring(0, int)}...` : texto;
-    }, []);
     const itemNotInCart = () => {
-        if(!notificationActive){toast.warn("Item is not in cart", {
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "light",
-            onClose: () => setNotificationActive(false)
-        });
-        setNotificationActive(true);
-    }}
+        if(!notificationActive){
+            toast.warn("Item is not in cart", {
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                onClose: () => setNotificationActive(false)
+            });
+            setNotificationActive(true);
+        }
+    }
     const maxStockReach = () => {
         if(!notificationActive){toast.error("Maximum stock reached", {
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: "light",
-            onClose: () => setNotificationActive(false)
-        });
-        setNotificationActive(true);
-    }}
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                onClose: () => setNotificationActive(false)
+            });
+            setNotificationActive(true);
+        }
+    }
 
     return (
         <div className='item'>
@@ -68,5 +68,9 @@ const Item = ({ itemProduct }) => {
         </div>
     );
 };
+
+function shortText(texto, int) {
+    return texto.length > int ? `${texto.substring(0, int)}...` : texto;
+}
 
 export default Item;

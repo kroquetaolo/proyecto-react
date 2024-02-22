@@ -2,12 +2,10 @@
     display: grid;
     height: 100%;
     grid-template-columns: repeat(5, 1fr) 1.3fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
         'content content content content content categories'
-        'content content content content content categories'
-        'content content content content content categories';
 }
 
 .content {

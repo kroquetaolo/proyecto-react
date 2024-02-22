@@ -3,7 +3,7 @@ import './NavBar.css'
 import logo from '../../assets/logo.png'
 import { LuShoppingCart } from 'react-icons/lu'
 import { useContext } from 'react'
-import { CartContext } from '../context/cartContext'
+import { CartContext } from '../context/CartContext'
 
 const NavBar = () => {
 

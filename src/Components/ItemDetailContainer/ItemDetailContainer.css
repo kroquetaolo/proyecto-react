@@ -33,7 +33,6 @@
 .item-detail-description {
     grid-area: item-detail-description;
     color: #a1a1a1;
-    cursor: default;
 }
 
 .item-detail-img {
@@ -60,7 +59,6 @@
     justify-content: center;
     grid-area: item-detail-title;
     margin: 0 20px 10px 20px;
-    cursor: default;
     font-size: 3em;
     margin: 10px 0;
 }
@@ -75,7 +73,6 @@
     border: 1px solid #a1a1a150;
     background-color: #1a1a1a;
     text-transform: capitalize;
-    cursor: default;
 }
 
 .item-detail-price {
@@ -83,7 +80,6 @@
     justify-self: left;
     margin-left: 20px;
     margin-bottom: 10px;
-    cursor: default;
     align-self: flex-start;
 }
 

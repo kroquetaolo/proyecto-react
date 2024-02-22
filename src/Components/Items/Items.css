@@ -47,7 +47,6 @@
     grid-area: item-title;
     height: 100px;
     margin: 0 20px 10px 20px;
-    cursor: default;
 }
 
 .item-title h3 {
@@ -81,7 +80,6 @@
     border: 1px solid #a1a1a150;
     background-color: #1a1a1a;
     text-transform: capitalize;
-    cursor: default;
 }
 
 .item-price {
@@ -89,7 +87,6 @@
     justify-self: left;
     margin-left: 20px;
     margin-bottom: 10px;
-    cursor: default;
 }
 
 .item-price p:nth-child(1) {
@@ -106,13 +103,12 @@
     align-items: center;
     grid-area: item-cart;
     justify-self: right;
+    padding: 6px;
     margin-right: 20px;
     margin-bottom: 10px;
     font-weight: bolder;
     background-color: #1a1a1a;
     border-radius: 12px;
-    
-
     transition: background-color .2s;
 }
 
@@ -125,15 +121,20 @@
     border: none;
     cursor: pointer;
     border-radius: 6px;
+    height: 32px;
     background-color: #28dcc891;
-    margin: 0 12px;
+    margin: 0 6px 0 0;
     transition: all 0.2s;
 }
+.item-cart button:not(:first-child) {
+    margin: 0 0 0 6px;
+}
 .item-cart p {
-    cursor: default;
     padding: 0 14px;
     border: 1px solid #a1a1a150;
     border-radius: 6px;
+    height: 32px;
+    line-height: 30px;
 }
 
 .item-cart button:hover {
