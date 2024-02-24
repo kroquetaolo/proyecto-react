@@ -1,10 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'
+import { toast } from 'react-toastify';
+import { CartContext } from '../context/CartContext';
+import { AiOutlineStop } from 'react-icons/ai';
+import { FaMinus, FaPlus } from 'react-icons/fa6';
+
 const ItemDetailContainer = () => {
     const { itemID } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const {addItem, getQuantity, getMaxStock, isInCart} = useContext(CartContext);
+    const [notificationActive, setNotificationActive] = useState(false);
+
+    const itemNotInCart = () => {
+        if(!notificationActive){
+            toast.warn("Item is not in cart", {
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                onClose: () => setNotificationActive(false)
+            });
+            setNotificationActive(true);
+        }
+    }
+    const maxStockReach = () => {
+        if(!notificationActive){toast.error("Maximum stock reached", {
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                onClose: () => setNotificationActive(false)
+            });
+            setNotificationActive(true);
+        }
+    }
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -39,7 +77,19 @@ const ItemDetailContainer = () => {
                             <p>Price:</p>
                             <p>${product.price}</p>
                         </div>
-                        <div className='item-detail-cart'>Add to cart</div>
+                        <div className='item-detail-cart'>
+                            {getQuantity(product) == getMaxStock() ?
+                                <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
+                                :
+                                <button onClick={() => addItem(product, 1)}> <FaPlus/> </button>
+                            }
+                            <p> {getQuantity(product)} </p>
+                            {!isInCart(product) ? 
+                                <button className='item-detail-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
+                                :
+                                <button onClick={() => addItem(product, -1)}> <FaMinus/> </button>
+                            }
+                        </div>
                     </div>
                 </div>
             }

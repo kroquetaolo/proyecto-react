@@ -15,3 +15,6 @@
 p, div, h1, h2, h3 {
   cursor: default;
 }
+.Toastify__toast-container {
+  top: 83px;
+}

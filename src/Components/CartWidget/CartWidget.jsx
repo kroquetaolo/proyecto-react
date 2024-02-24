@@ -55,7 +55,6 @@ const CartWidget = () => {
                                 :
                             <button onClick={() => addItem(cartItem, -1)}> <FaMinus/></button>
                             }
-                            
                         </div>
                         <p>
                             ${(cartItem.price * cartItem.quantity).toFixed(2)}
