@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
-import { CartContext } from '../context/CartContext'
+import { CartContext } from '../Context/CartContext'
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { AiOutlineStop } from "react-icons/ai";
 import { toast } from 'react-toastify';

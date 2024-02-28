@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'
 import { toast } from 'react-toastify';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../Context/CartContext';
 import { AiOutlineStop } from 'react-icons/ai';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 

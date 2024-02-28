@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../Context/CartContext';
 import './CartWidget.css'
 import { AiOutlineStop } from "react-icons/ai";
 import { FaPlus, FaMinus } from "react-icons/fa6";
