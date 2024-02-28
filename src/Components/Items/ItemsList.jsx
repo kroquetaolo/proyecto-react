@@ -33,7 +33,7 @@ const ItemsList = ({ productsList }) => {
 
     return (
         <React.Fragment>
-            { loading ? <span className="loader"></span> :
+            { loading ? <div className='loader-container'><span className="loader"></span></div> :
             <div className='content'>
                 {productsList.map((product) => (
                     <React.Fragment key={product.id}>

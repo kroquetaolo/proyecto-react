@@ -1,67 +1,110 @@
 .cart-container {
+    min-height: 100vh;
+    padding-top: 83px;
+
+}
+
+.cart {
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr;
     grid-template-columns: repeat(4, 1fr) 0.5fr 1fr 0.5fr;
     grid-template-rows: 1fr;
     grid-template-areas: ". cart-items-container cart-items-container cart-items-container . cart-total-container .";
-    
-    margin-top: 80px;
 }
 
 .cart-items-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(auto, 1fr); 
+    grid-template-rows: repeat(auto, 1fr);
     gap: 0px 0px;
     grid-area: cart-items-container;
     border: 3px solid #a1a1a150;
+    border-top: none;
 }
+
 .cart-item {
     display: grid;
     align-items: center;
     text-align: center;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(auto , 1fr);
+    grid-template-rows: repeat(auto, 1fr);
     grid-auto-flow: column;
-    background-color: #1a1a1a;
+    background-color: var(--primary-color);
 }
+
 .cart-item:first-child {
     margin: 10px 0;
 }
+
 .cart-item:not(:first-child) {
     padding: 10px 5px;
 }
-.cart-item > * {
+
+.cart-item>* {
     margin: 20px 0px;
 }
+
 .cart-total-container {
     grid-area: cart-total-container;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    width: 100%;
 }
 
-.cart-total-container div {
+.cart-total {
     position: fixed;
-    z-index: -2;
-    background-color: #1a1a1a;
+    z-index: 2;
+    background-color: var(--primary-background);
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    align-items: center;
     padding: 10px 20px;
     border: 3px solid #a1a1a150;
+    border-top: none;
 }
-.cart-total-container div > * {
+.cart-total-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 250px;
+    transform: translate(-50px);
+}
+.cart-total-buttons a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #1a1a1a;
+    background-color: #28dcc891;
+    margin: 0 6px;
+    padding: 12px;
+}
+
+
+.cart-total-buttons a:hover {
+    background-color: #28dcc8;
+    animation: jello-horizontal 0.9s both;
+}
+
+
+.cart-total > * {
     padding: 20px 0px;
     width: 100%;
 }
+
 .cart-item-button {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .cart-item-button button {
     display: flex;
     justify-content: center;
@@ -75,12 +118,24 @@
     background-color: #28dcc891;
     margin: 0 6px;
 }
+
+.cart-item-button button:hover {
+    background-color: #28dcc8;
+    animation: jello-horizontal 0.9s both;
+}
+
 .cart-item-button-maxstock {
     background-color: #dc282891 !important;
     cursor: not-allowed !important;
 }
+
 .cart-item-button-trash {
     background-color: #dc282891 !important;
+}
+
+.cart-item-button-maxstock:hover,
+.cart-item-button-trash:hover {
+    background-color: #dc2828 !important;
 }
 
 .cart-item-button p {
@@ -89,4 +144,63 @@
     border-radius: 6px;
     height: 32px;
     line-height: 30px;
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.cart-empty img {
+    width: 30vw;
+}
+
+.cart-empty a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #1a1a1a;
+    border-radius: 6px;
+    background-color: #28dcc891;
+    padding: 12px 15px;
+
+}
+
+.cart-empty a:hover {
+    animation: jello-horizontal 1.2s infinite both;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
 }

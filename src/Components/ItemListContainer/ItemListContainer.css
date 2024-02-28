@@ -24,6 +24,7 @@
     margin-top: 20px;
     margin-right: 20px;
     width: 275px;
+    animation: bounce-in-right 1200ms 600ms both;
 }
 
 .categories ul {
@@ -33,24 +34,24 @@
     gap: 10px;
     flex-direction: column;
     list-style-type: none;
-    background-color: #202020;
-    border: 1px solid #a1a1a150;
+    background-color: var(--category-background);
+    border: 1px solid var(--category-border);
     border-radius: 12px;
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     padding-bottom: 10px;
 
-    -webkit-box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 10px 17px 7px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 10px 17px 7px var(--category-box-shadow);
+    -moz-box-shadow: 0px 10px 17px 7px var(--category-box-shadow);
+    box-shadow: 0px 10px 17px 7px var(--category-box-shadow);
 }
 
 .categories ul li {
     height: 48px;
     width: 100%;
     padding-left: 20px;
-    background: rgb(45, 45, 45);
-    background: linear-gradient(90deg, rgb(37, 37, 37) 0%, rgba(255, 255, 255, 0) 75%);
+    background: var(--category-li-background);
+    background: linear-gradient(90deg, var(--category-li-background) 0%, #ffffff00 75%);
 }
 
 .categories ul li:nth-child(1) {
@@ -72,7 +73,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    color: #a1a1a1;
+    color: var(--category-color);
     text-decoration: none;
     font-size: 1.3em;
     /* padding-left: 20px; */
@@ -126,6 +127,50 @@
 
 .categories ul li:hover a,
 .categories ul li a.active {
-    color: #fffafa;
+    color: var(--category-special);
     text-shadow: 0px 0px 10px rgba(40, 220, 200, 0.57);
+}
+
+@keyframes bounce-in-right {
+    0% {
+        transform: translateX(600px);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    38% {
+        transform: translateX(0);
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+
+    55% {
+        transform: translateX(68px);
+        animation-timing-function: ease-in;
+    }
+
+    72% {
+        transform: translateX(0);
+        animation-timing-function: ease-out;
+    }
+
+    81% {
+        transform: translateX(32px);
+        animation-timing-function: ease-in;
+    }
+
+    90% {
+        transform: translateX(0);
+        animation-timing-function: ease-out;
+    }
+
+    95% {
+        transform: translateX(8px);
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        transform: translateX(0);
+        animation-timing-function: ease-out;
+    }
 }

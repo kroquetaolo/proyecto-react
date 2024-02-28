@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 
 export const CartContext = createContext([]);
@@ -14,7 +14,13 @@ function notification(message) {
     });
 }
 export function CartProvider({ children }) {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => {
+        const savedCartItems = localStorage.getItem('cartItems');
+        return savedCartItems ? JSON.parse(savedCartItems) : [];
+    });
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     function addItem(item, quantity) {
         const newItem = { ...item, quantity: quantity };
@@ -53,6 +59,8 @@ export function CartProvider({ children }) {
 
     function clear() {
         setCartItems([]);
+        localStorage.getItem('cartItems') && localStorage.removeItem('cartItems');
+        
     }
 
     function isInCart(userItem) {
@@ -60,11 +68,7 @@ export function CartProvider({ children }) {
     }
 
     function getQuantity(userItem) {
-        if(isInCart(userItem)) {
-            return cartItems.find(product => product.id === userItem.id).quantity;
-        } else {
-            return 0;
-        }
+        return isInCart(userItem) ? cartItems.find(product => product.id === userItem.id).quantity : 0;
     }
 
     function getMaxStock() {

@@ -61,7 +61,7 @@ const ItemDetailContainer = () => {
     }, [itemID]);
     return (
         <React.Fragment>
-            {loading ? <span className="loader"></span> :
+            {loading ? <div className='loader-container'><span className="loader"></span></div> :
                 <div className='item-detail-container'>
                     <div className='back'><Link to={`/category/${product.category}`}> ◀ GO BACK  </Link></div>
                     <div className='item-detail'>
