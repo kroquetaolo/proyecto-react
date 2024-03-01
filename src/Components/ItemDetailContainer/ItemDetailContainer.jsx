@@ -12,11 +12,13 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const {addItem, getQuantity, getMaxStock, isInCart} = useContext(CartContext);
+    const { addItem, getQuantity, getMaxStock, isInCart } = useContext(CartContext);
     const [notificationActive, setNotificationActive] = useState(false);
 
+    const [imageIndex, setImageIndex] = useState({ grey: [2, 3], thumbnail: 1 });
+
     const itemNotInCart = () => {
-        if(!notificationActive){
+        if (!notificationActive) {
             toast.warn("Item is not in cart", {
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -31,7 +33,8 @@ const ItemDetailContainer = () => {
         }
     }
     const maxStockReach = () => {
-        if(!notificationActive){toast.error("Maximum stock reached", {
+        if (!notificationActive) {
+            toast.error("Maximum stock reached", {
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -52,9 +55,22 @@ const ItemDetailContainer = () => {
             setProduct(snapshot.data());
             setLoading(false)
         })
-    },[itemID]);
+    }, [itemID]);
 
+    function changeIndex(index) {
+        const indexMap = {
+            "2,3": { 2: { grey: [1, 3], thumbnail: 2 }, 3: { grey: [2, 1], thumbnail: 3 } },
+            "2,1": { 2: { grey: [3, 1], thumbnail: 2 }, 1: { grey: [2, 3], thumbnail: 1 } },
+            "3,1": { 3: { grey: [2, 1], thumbnail: 3 }, 1: { grey: [3, 2], thumbnail: 1 } },
+            "1,3": { 1: { grey: [2, 3], thumbnail: 1 }, 3: { grey: [1, 2], thumbnail: 3 } },
+            "1,2": { 1: { grey: [3, 2], thumbnail: 1 }, 2: { grey: [1, 3], thumbnail: 2 } },
+            "3,2": { 3: { grey: [1, 2], thumbnail: 3 }, 2: { grey: [3, 1], thumbnail: 2 } }
+        };
 
+        const key = imageIndex.grey.join(',');
+        const action = indexMap[key][index];
+        setImageIndex(action);
+    }
 
     return (
         <React.Fragment>
@@ -64,10 +80,13 @@ const ItemDetailContainer = () => {
                     <div className='item-detail'>
                         <div className='item-detail-img'>
                             <div className='item-detail-img-grey'>
-                                <img src={`/products/${product.category}/02${product.title}.jpeg`} alt={product.title}/>
-                                <img src={`/products/${product.category}/03${product.title}.jpeg`} alt={product.title}/>
+                                {
+                                    imageIndex.grey.map((index) => (
+                                        <img key={index} onClick={() => changeIndex(index)} src={`/products/${product.category}/0${index}${product.title}.jpeg`} alt={product.title} />
+                                    ))
+                                }
                             </div>
-                            <img className='item-detail-principal-img' src={`/products/${product.category}/01${product.title}.jpeg`} alt={product.title}/>
+                            <img className='item-detail-principal-img' src={`/products/${product.category}/0${imageIndex.thumbnail}${product.title}.jpeg`} alt={product.title} />
                         </div>
                         <div className='item-detail-title'>
                             <h3>{product.title}</h3>
@@ -80,15 +99,15 @@ const ItemDetailContainer = () => {
                         </div>
                         <div className='item-detail-cart'>
                             {getQuantity(product) == getMaxStock() ?
-                                <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
+                                <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop /> </button>
                                 :
-                                <button onClick={() => addItem(product, 1)}> <FaPlus/> </button>
+                                <button onClick={() => addItem(product, 1)}> <FaPlus /> </button>
                             }
                             <p> {getQuantity(product)} </p>
-                            {!isInCart(product) ? 
+                            {!isInCart(product) ?
                                 <button className='item-detail-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
                                 :
-                                <button onClick={() => addItem(product, -1)}> <FaMinus/> </button>
+                                <button onClick={() => addItem(product, -1)}> <FaMinus /> </button>
                             }
                         </div>
                     </div>

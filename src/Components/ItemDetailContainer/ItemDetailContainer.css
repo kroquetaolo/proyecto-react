@@ -52,13 +52,18 @@
 .item-detail-img-grey {
     display: flex;
     height: 20%;
-    filter: grayscale(0.85);
+    cursor: pointer;
 }
 
 .item-detail-img-grey img {
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+    filter: grayscale(0.8);
+    transition: filter 0.2s ease-in-out;
+}
+.item-detail-img-grey img:hover {
+    filter: grayscale(0);
 }
 
 .item-detail-img-grey img:nth-child(1) {
