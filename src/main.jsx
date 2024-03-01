@@ -22,7 +22,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
-console.log(import.meta.env.VITE_SOME_API_KEY)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
