@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import { useParams } from 'react-router-dom';
 import ItemsList from '../Items/ItemsList';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
     const { categoryID } = useParams();
 
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                if (categoryID === undefined) {
-                    setProducts(data);
-                    console.log("Productos establecidos correctamente");
-                } else {
-                    const dataFilter = data.filter((item) => {
-                        return item.category === categoryID;
-                    });
-                    setProducts(dataFilter);
-                }
-            })
-            .catch((err) => console.error(err));
+        const db = getFirestore();
+        const productRef = collection(db, 'products');
+        const dataQuery = categoryID === undefined ? productRef : query(productRef, where("category", "==", categoryID));
+        getDocs(dataQuery)
+            .then(collection => {
+                const products = collection.docs.map(doc => doc.data());
+                setProducts(products);
+            }).catch(err => console.error(err));
     }, [categoryID]);
+
     return (
-        <React.Fragment>
-            <div className='itemListContainer'>
-                <ItemsList productsList={products} />
-            </div>
-        </React.Fragment>
+        <div className='itemListContainer'>
+            <ItemsList productsList={products} />
+        </div>
     );
 };
 

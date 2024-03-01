@@ -5,7 +5,7 @@
     grid-template-areas:
         'item-img item-img'
         'item-title item-title'
-        'item-category item-category'
+        'item-category item-color'
         'item-price item-cart';
     width: 350px;
     margin: 20px 20px;
@@ -73,6 +73,10 @@
     color: var(--read-more-color);
     text-transform: capitalize;
     box-shadow: var(--item-category-box-shadow);
+}
+
+.item-color {
+    grid-area: item-color;
 }
 
 .item-price {

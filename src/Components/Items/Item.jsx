@@ -41,12 +41,15 @@ const Item = ({ itemProduct }) => {
 
     return (
         <div className='item'>
-            <Link className='item-img' to={`/item/${itemProduct.id}`}><img src={itemProduct.image} alt='product image'/></Link>
+                <Link className='item-img' to={`/item/${itemProduct.id}`}>
+                    <img src={`/products/${itemProduct.category}/01${itemProduct.title}.jpeg`} alt={itemProduct.title}/>
+                </Link>
             <div className='item-title'>
                 <h3>{shortText(itemProduct.title, 45)}</h3>
                 <p>{shortText(itemProduct.description, 50)} <Link to={`/item/${itemProduct.id}`}>read more</Link></p>
             </div>
             <div className='item-category'>{itemProduct.category}</div>
+            <div className='item-color' style={{backgroundColor: itemProduct.color}}> </div>
             <div className='item-price'>
                 <p>Price:</p>
                 <p>${itemProduct.price}</p>

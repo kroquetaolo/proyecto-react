@@ -29,6 +29,7 @@
   --category-li-background: #303030;
   --category-border: #a1a1a150;
   --category-box-shadow: #000000bf;
+  --item-detail-back: #c5c5c5;
 }
 
 .dark-mode-off {
@@ -38,7 +39,7 @@
   --primary-color: #b5d9f1;
   --primary-background: #76d9dfee;
   --secundary-color: #a1a1a1;
-  --read-more-color: #212a29;
+  --read-more-color: #050505;
   --item-category-box-shadow: inset 5px 5px 5px #9ab8cd, inset -4px -4px 4px #d0faff;
   --item-box-shadow: 20px 20px 60px #9ab8cd, -20px -20px 60px #d0faff;
   --loader-color: #1a1a1a;
@@ -49,6 +50,8 @@
   --category-li-background: #d0faff;
   --category-border: none;
   --category-box-shadow: #b5d9f1;
+  --item-detail-back: #1a1a1a;
+
 }
 
 p,

@@ -153,7 +153,7 @@
 }
 .back a{
     font-size: 1.5em;
-    color: #c5c5c5;
+    color: var(--item-detail-back);
     text-decoration: none;
     background-color: #28dcc891;
     border-radius: 32px;

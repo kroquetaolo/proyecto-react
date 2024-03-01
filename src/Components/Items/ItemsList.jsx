@@ -5,19 +5,8 @@ import { BiCategory } from "react-icons/bi";
 import './Items.css'
 
 const ItemsList = ({ productsList }) => {
-    const [categories, setCategories] = useState([]);
+    const categories = ["Men's Clothing", "Women's Clothing", "Jewelry"];
     const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
-        .then(res => res.json())
-        .then(data => {
-            setCategories(data)
-            console.log("Categorias cargadas");
-        })
-        .catch((err) => console.error(err));
-    },[]);
-
     const handleCategoryClick = () => {
         setLoading(true);
         setTimeout(() => {

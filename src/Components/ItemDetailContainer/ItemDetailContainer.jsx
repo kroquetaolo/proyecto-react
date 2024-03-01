@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { CartContext } from '../Context/CartContext';
 import { AiOutlineStop } from 'react-icons/ai';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
     const { itemID } = useParams();
@@ -45,20 +46,15 @@ const ItemDetailContainer = () => {
     }
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                data.filter((item) => {
-                    if (item.id === parseInt(itemID)) {
-                        setProduct(item);
-                        setLoading(false)
-                    }
-                });
-            })
-            .catch((err) => console.error(err));
-    }, [itemID]);
+        const db = getFirestore();
+        const document = doc(db, "products", itemID);
+        getDoc(document).then((snapshot) => {
+            setProduct(snapshot.data());
+            setLoading(false)
+        })
+    },[itemID]);
+
+
     return (
         <React.Fragment>
             {loading ? <div className='loader-container'><span className="loader"></span></div> :
@@ -66,7 +62,7 @@ const ItemDetailContainer = () => {
                     <div className='back'><Link to={`/category/${product.category}`}> ◀ GO BACK  </Link></div>
                     <div className='item-detail'>
                         <div className='item-detail-img'>
-                            <img src={product.image} alt='product image' />
+                            <img src={`/products/${product.category}/01${product.title}.jpeg`} alt={product.title} />
                         </div>
                         <div className='item-detail-title'>
                             <h3>{product.title}</h3>
