@@ -15,8 +15,8 @@
   --secundary-color: #1a1a1a;
   --primary-background: #111111ee;
   --read-more-color: #dddddd;
-  --item-category-box-shadow: inset 8px 8px 14px #131313, inset -8px -8px 14px #212121;
-  --item-box-shadow: 13px 13px 26px #121212, -13px -13px 26px #222222;
+  --item-category-box-shadow: inset .5rem .5rem .875rem #131313, inset -0.5rem -0.5rem .875rem #212121;
+  --item-box-shadow: .8125rem .8125rem 1.625rem #121212, -0.8125rem -0.8125rem 1.625rem #222222;
   --loader-color: #ffffff;
   --nav-border-color: #20b1a0;
   --toggle-light: #e6fdff;
@@ -40,8 +40,8 @@
   --primary-background: #76d9dfee;
   --secundary-color: #a1a1a1;
   --read-more-color: #050505;
-  --item-category-box-shadow: inset 5px 5px 5px #9ab8cd, inset -4px -4px 4px #d0faff;
-  --item-box-shadow: 20px 20px 60px #9ab8cd, -20px -20px 60px #d0faff;
+  --item-category-box-shadow: inset .3125rem .3125rem .3125rem #9ab8cd, inset -0.25rem -0.25rem .25rem #d0faff;
+  --item-box-shadow: 1.25rem 1.25rem 3.75rem #9ab8cd, -1.25rem -1.25rem 3.75rem #d0faff;
   --loader-color: #1a1a1a;
   --nav-border-color: #00b39e;
   --category-background: none;
@@ -63,5 +63,5 @@ h3 {
 }
 
 .Toastify__toast-container {
-  top: 83px;
+  top: 5.1875rem;
 }

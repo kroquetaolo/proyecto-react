@@ -1,15 +1,15 @@
 .toggle-switch {
     position: relative;
-    width: 80px;
-    height: 40px;
+    width: 5rem;
+    height: 2.5rem;
 }
 
 .switch-label {
     position: absolute;
     width: 100%;
-    height: 40px;
+    height: 2.5rem;
     background-color: var(--toggle-dark);
-    border-radius: 25px;
+    border-radius: 1.5625rem;
     cursor: pointer;
     border: 2px solid var(--nav-border-color);
 }
@@ -23,7 +23,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 25px;
+    border-radius: 1.5625rem;
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
@@ -35,24 +35,24 @@
 .slider::before {
     content: "";
     position: absolute;
-    top: 7px;
-    left: 7px;
-    width: 23px;
-    height: 23px;
+    top: .4375rem;
+    left: .4375rem;
+    width: 1.4375rem;
+    height: 1.4375rem;
     border-radius: 50%;
-    -webkit-box-shadow: inset 10px -1px 0px 0px var(--toggle-light);
-    box-shadow: inset 10px -1px 0px 0px var(--toggle-light);
+    -webkit-box-shadow: inset .625rem -0.0625rem 0rem 0rem var(--toggle-light);
+    box-shadow: inset .625rem -0.0625rem 0rem 0rem var(--toggle-light);
     background-color: var(--toggle-dark);
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
 
 .checkbox:checked~.slider::before {
-    -webkit-transform: translateX(40px);
-    -ms-transform: translateX(40px);
-    transform: translateX(40px);
+    -webkit-transform: translateX(2.5rem);
+    -ms-transform: translateX(2.5rem);
+    transform: translateX(2.5rem);
     background-color: var(--toggle-sun);
-    -webkit-box-shadow: 0px 0px 40px 10px var(--toggle-sun-shadow-color);
-    -moz-box-shadow: 0px 0px 40px 10px var(--toggle-sun-shadow-color);
-    box-shadow: 0px 0px 8px 1px var(--toggle-sun-shadow-color);
+    -webkit-box-shadow: 0rem 0rem 2.5rem .625rem var(--toggle-sun-shadow-color);
+    -moz-box-shadow: 0rem 0rem 2.5rem .625rem var(--toggle-sun-shadow-color);
+    box-shadow: 0rem 0rem .5rem .0625rem var(--toggle-sun-shadow-color);
 }

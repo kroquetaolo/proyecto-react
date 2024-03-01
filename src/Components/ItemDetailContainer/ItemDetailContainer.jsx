@@ -55,6 +55,7 @@ const ItemDetailContainer = () => {
     },[itemID]);
 
 
+
     return (
         <React.Fragment>
             {loading ? <div className='loader-container'><span className="loader"></span></div> :
@@ -62,7 +63,11 @@ const ItemDetailContainer = () => {
                     <div className='back'><Link to={`/category/${product.category}`}> ◀ GO BACK  </Link></div>
                     <div className='item-detail'>
                         <div className='item-detail-img'>
-                            <img src={`/products/${product.category}/01${product.title}.jpeg`} alt={product.title} />
+                            <div className='item-detail-img-grey'>
+                                <img src={`/products/${product.category}/02${product.title}.jpeg`} alt={product.title}/>
+                                <img src={`/products/${product.category}/03${product.title}.jpeg`} alt={product.title}/>
+                            </div>
+                            <img className='item-detail-principal-img' src={`/products/${product.category}/01${product.title}.jpeg`} alt={product.title}/>
                         </div>
                         <div className='item-detail-title'>
                             <h3>{product.title}</h3>

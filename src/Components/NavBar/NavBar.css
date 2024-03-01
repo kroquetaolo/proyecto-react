@@ -8,7 +8,7 @@
     align-items: center;
     background-color: var(--primary-background);
     width: 100%;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
@@ -24,12 +24,12 @@
     text-decoration: none;
     color: var(--light-secundary-color);
     font-size: 1.6em;
-    padding-left: 20px;
+    padding-left: 1.25rem;
 }
 .navBarContainer img {
-    height: 80px;
+    height: 5rem;
     border-radius: 35%;
-    padding: 5px;
+    padding: .3125rem;
 }
 .cartIcon {
     display: flex;
@@ -43,20 +43,20 @@
 }
 .cartIcon svg {
     border: 2px solid var(--nav-border-color);
-    margin: 5px;
-    border-radius: 8px;
-    padding: 12px;
-    height: 48px;
-    width: 48px;
+    margin: .3125rem;
+    border-radius: .5rem;
+    padding: .75rem;
+    height: 3rem;
+    width: 3rem;
 }
 .cartNumber {
     font-size: 0.8em;
-    transform: translate(16px, -20px);
+    transform: translate(1rem, -1.25rem);
     background-color: var(--light-secundary-color);
     color: var(--secundary-color);
     font-weight: bold;
-    line-height: 25px;
-    padding: 0 10px;
+    line-height: 1.5625rem;
+    padding: 0 .625rem;
     border-radius: 50%;
 }
 
