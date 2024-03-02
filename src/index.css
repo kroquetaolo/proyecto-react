@@ -15,7 +15,7 @@
   --secundary-color: #1a1a1a;
   --primary-background: #111111ee;
   --read-more-color: #dddddd;
-  --item-category-box-shadow: inset .5rem .5rem .875rem #131313, inset -0.5rem -0.5rem .875rem #212121;
+  --item-category-box-shadow: inset .3125rem .3125rem .3125rem #0a0a0a, inset -0.25rem -0.25rem .25rem #333333;
   --item-box-shadow: .8125rem .8125rem 1.625rem #121212, -0.8125rem -0.8125rem 1.625rem #222222;
   --loader-color: #ffffff;
   --nav-border-color: #20b1a0;
@@ -29,7 +29,9 @@
   --category-li-background: #303030;
   --category-border: #a1a1a150;
   --category-box-shadow: #000000bf;
-  --item-detail-back: #c5c5c5;
+  --item-detail-back: #d8d8d8;
+  --item-detail-category: #1a1a1a;
+  --item-detail-description: #a1a1a1;
 }
 
 .dark-mode-off {
@@ -40,7 +42,7 @@
   --primary-background: #76d9dfee;
   --secundary-color: #a1a1a1;
   --read-more-color: #050505;
-  --item-category-box-shadow: inset .3125rem .3125rem .3125rem #9ab8cd, inset -0.25rem -0.25rem .25rem #d0faff;
+  --item-category-box-shadow: inset .3125rem .3125rem .3125rem #84a3bb, inset -0.25rem -0.25rem .25rem #b8e0e4;
   --item-box-shadow: 1.25rem 1.25rem 3.75rem #9ab8cd, -1.25rem -1.25rem 3.75rem #d0faff;
   --loader-color: #1a1a1a;
   --nav-border-color: #00b39e;
@@ -51,6 +53,8 @@
   --category-border: none;
   --category-box-shadow: #b5d9f1;
   --item-detail-back: #1a1a1a;
+  --item-detail-category: #9bc5e0;
+  --item-detail-description: #7a7a7a;
 
 }
 

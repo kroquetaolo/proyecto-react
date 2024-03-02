@@ -49,7 +49,10 @@ const Item = ({ itemProduct }) => {
                 <p>{shortText(itemProduct.description, 50)} <Link to={`/item/${itemProduct.id}`}>read more</Link></p>
             </div>
             <div className='item-category'>{itemProduct.category}</div>
-            <div className='item-color' style={{backgroundColor: itemProduct.color}}> </div>
+            <div className='item-color'>
+                <p>Color: </p>
+                <div className='item-color-hex' style={{backgroundColor: itemProduct.color}}></div>
+            </div>
             <div className='item-price'>
                 <p>Price:</p>
                 <p>${itemProduct.price}</p>

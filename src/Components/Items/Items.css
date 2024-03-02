@@ -58,7 +58,7 @@
 }
 
 .item-title p {
-    color: #a1a1a1;
+    color: var(--item-detail-description);
 }
 
 .item-category {
@@ -68,7 +68,7 @@
     margin-bottom: .625rem;
     padding: .75rem;
     border-radius: .75rem;
-    background-color: var(--primary-color);
+    background-color: var(--item-detail-category);
     color: var(--read-more-color);
     text-transform: capitalize;
     box-shadow: var(--item-category-box-shadow);
@@ -76,6 +76,18 @@
 
 .item-color {
     grid-area: item-color;
+    display: flex;
+    justify-self: right;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem;
+    margin-right: .875rem;
+}
+
+.item-color-hex {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
 }
 
 .item-price {

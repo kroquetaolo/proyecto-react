@@ -92,6 +92,10 @@ const ItemDetailContainer = () => {
                             <h3>{product.title}</h3>
                         </div>
                         <div className='item-detail-category'>{product.category}</div>
+                        <div className='item-detail-color'>
+                                <p className='item-detail-color-text'>Color: </p>
+                                <div className='item-detail-color-hex' style={{backgroundColor: product.color}}></div>
+                        </div>
                         <p className='item-detail-description'>{product.description}</p>
                         <div className='item-detail-price'>
                             <p>Price:</p>
