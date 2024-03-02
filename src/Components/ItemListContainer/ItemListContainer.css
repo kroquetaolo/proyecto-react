@@ -1,6 +1,7 @@
 .itemListContainer {
     display: grid;
     height: 100%;
+    min-height: 100vh;
     grid-template-columns: repeat(5, 1fr) 1.3fr;
     grid-template-rows: 1fr;
     gap: 0rem 0rem;

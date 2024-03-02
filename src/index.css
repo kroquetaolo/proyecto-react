@@ -32,6 +32,12 @@
   --item-detail-back: #d8d8d8;
   --item-detail-category: #1a1a1a;
   --item-detail-description: #a1a1a1;
+  --checkout-background: #242424;
+  --checkout-border: 4px solid #d8d8d8;
+  --checkout-focus: #dcd928;
+  --checkout-error: #b12020;
+  --checkout-filled: #2cb120;
+  --checkout-submit: #28dcc891;
 }
 
 .dark-mode-off {
@@ -55,6 +61,13 @@
   --item-detail-back: #1a1a1a;
   --item-detail-category: #9bc5e0;
   --item-detail-description: #7a7a7a;
+  --checkout-background: #e6fdff;
+  --checkout-border: 4px solid #1a1a1a;
+  --checkout-focus: #dcd928;
+  --checkout-error: #b12020;
+  --checkout-filled: #2cb120;
+  --checkout-submit: #28dcc891;
+
 
 }
 
@@ -68,4 +81,13 @@ h3 {
 
 .Toastify__toast-container {
   top: 5.1875rem;
+}
+
+footer {
+  overflow: hidden;
+  margin-top: 50px;
+  padding: 20px;
+  width: 100%;
+  background-color: var(--primary-background);
+
 }

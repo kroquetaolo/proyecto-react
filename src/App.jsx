@@ -7,6 +7,7 @@ import CartWidget from './Components/CartWidget/CartWidget';
 import ScrollToTop from './Components/ScrollToTop';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
+import Checkout from './Components/Checkout/Checkout';
 
 function App() {
     return (
@@ -19,22 +20,24 @@ function App() {
                     <Route path='/item/:itemID' element={<ItemDetailContainer/>}/>
                     <Route path='/' element={<ItemListContainer/>}/>
                     <Route path='/cart' element={<CartWidget/>}/>
+                    <Route path='/cart/checkout' element={<Checkout/>}/>
                 </Routes>
+                <footer> The products are not real and the images were generated using artificial intelligence. </footer>
                 <ScrollToTop/>
             </BrowserRouter>
-        </CartProvider>
-        <ToastContainer
-            position="top-right"
-            autoClose={1000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss={true}
-            draggable={false}
-            pauseOnHover={false}
-            theme="light"
-        />
+            </CartProvider>
+            <ToastContainer
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={true}
+                draggable={false}
+                pauseOnHover={false}
+                theme="light"
+            />
         </React.Fragment>
     );
 }

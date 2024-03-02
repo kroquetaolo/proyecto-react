@@ -162,8 +162,7 @@
     background-color: #dc2828 !important;
 }
 .loader-container {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
 }
 .loader, .loader:before,
 .loader:after {

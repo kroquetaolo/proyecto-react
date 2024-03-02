@@ -17,7 +17,12 @@ const NavBar = () => {
             </div>
             <div className='navBarControls'>
                 <DarkMode/>
-                <Link to='/cart/' className="cartIcon"> <p className='cartNumber'>{cartItems.length}</p> <LuShoppingCart/></Link>
+                <div className="cartIcon"> 
+                    <p className='cartNumber'>{cartItems.length}</p>
+                    <Link to='/cart/' className='cartIcon'>
+                        <LuShoppingCart/>
+                    </Link> 
+                </div>
             </div>
             
         </header>

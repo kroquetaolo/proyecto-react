@@ -79,7 +79,7 @@ const CartWidget = () => {
                         <p>Items: {getTotalItems()}</p>
                     </div>
                     <div className='cart-total-buttons'>
-                        <Link>CHECKOUT</Link>
+                        <Link to='checkout'>CHECKOUT</Link>
                         <Link to='/'>Continue Shopping</Link>
                     </div>
                 </div>
