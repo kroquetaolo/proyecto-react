@@ -30,7 +30,7 @@ const CartWidget = () => {
 
     return (
         <div className='cart-container'>
-            {cartItems.length == 0 ? 
+            {cartItems.length === 0 ? 
             <div className='cart-empty'>
                 <img src={cartEmpty} alt="your cart is empty" />
                 <h1>Time to start shopping!</h1>
@@ -55,7 +55,7 @@ const CartWidget = () => {
                                 ${cartItem.price}
                             </p>
                             <div className='cart-item-button'>
-                                {getQuantity(cartItem) == cartItem.stock ?
+                                {getQuantity(cartItem) === cartItem.stock ?
                                     <button className='cart-item-button-maxstock' onClick={ maxStockReach }><AiOutlineStop/></button>
                                     :
                                     <button onClick={() => addItem(cartItem, 1)}><FaPlus/></button>

@@ -97,7 +97,7 @@ const ItemDetailContainer = () => {
                             {product.stock === 0 ? 
                             <div className='item-detail-cart-nostock'> Out of Stock</div> :
                             <React.Fragment>
-                                {getQuantity(product) == product.stock ?
+                                {getQuantity(product) === product.stock ?
                                     <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
                                     :
                                     <button className='item-detail-cart-greenbutton' onClick={() => addItem(product, 1)}> <FaPlus/> </button>

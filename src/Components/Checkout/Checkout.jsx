@@ -58,7 +58,7 @@ const Checkout = () => {
 
     return (
         <div className="checkout">
-            {cartItems.length == 0 && !orderSent ? 
+            {cartItems.length === 0 && !orderSent ? 
             <div className='cart-empty'>
                 <img src={cartEmpty} alt="your cart is empty" />
                 <h1>Time to start shopping!</h1>

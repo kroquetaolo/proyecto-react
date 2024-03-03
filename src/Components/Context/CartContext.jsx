@@ -30,7 +30,7 @@ export function CartProvider({ children }) {
             if (itemInCart.quantity === 0) {
                 removeItem(newItem);
             }
-            (quantity == 1) ? 
+            (quantity === 1) ? 
             notification(`"${itemInCart.title}" New quantity: ${itemInCart.quantity}`)
                 :
             (itemInCart.quantity != 0) ? 
