@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const { addItem, getQuantity, getMaxStock, isInCart } = useContext(CartContext);
+    const { addItem, getQuantity, isInCart } = useContext(CartContext);
     const [notificationActive, setNotificationActive] = useState(false);
 
     const [imageIndex, setImageIndex] = useState({ grey: [2, 3], thumbnail: 1 });
@@ -102,7 +102,7 @@ const ItemDetailContainer = () => {
                             <p>${product.price}</p>
                         </div>
                         <div className='item-detail-cart'>
-                            {getQuantity(product) == getMaxStock() ?
+                            {getQuantity(product) == product.stock ?
                                 <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop /> </button>
                                 :
                                 <button onClick={() => addItem(product, 1)}> <FaPlus /> </button>

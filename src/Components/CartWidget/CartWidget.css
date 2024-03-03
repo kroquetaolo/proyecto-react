@@ -64,6 +64,7 @@
     border: 3px solid #a1a1a150;
     border-top: none;
 }
+
 .cart-total-buttons {
     display: flex;
     justify-content: center;
@@ -72,6 +73,7 @@
     top: 15.625rem;
     transform: translate(-50px);
 }
+
 .cart-total-buttons a {
     display: flex;
     flex-direction: row;
@@ -94,7 +96,7 @@
 }
 
 
-.cart-total > * {
+.cart-total>* {
     padding: 1.25rem 0;
     width: 100%;
 }
@@ -156,6 +158,12 @@
 
 .cart-empty img {
     width: 30vw;
+    border-radius: 1.5rem;
+    margin: 1.25rem;
+}
+
+.cart-empty p {
+    padding: .625rem;
 }
 
 .cart-empty a {

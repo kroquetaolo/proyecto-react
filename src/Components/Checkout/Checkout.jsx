@@ -1,19 +1,81 @@
 import { useForm } from "react-hook-form"
 import "./Checkout.css"
+import { useContext, useState } from "react";
+import { CartContext } from "../Context/CartContext";
+import { addDoc, collection, doc, getFirestore, writeBatch } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import cartEmpty from "../../assets/cart-empty.jpeg"
+import delivery from "../../assets/delivery.jpeg"
 
 const Checkout = () => {
 
-    const { register, formState: {errors}, handleSubmit, watch } = useForm()
+    const {cartItems, getQuantity, clear} = useContext(CartContext);
+    const [orderSent, setOrderSent] = useState(false);
+    const [orderId, setOrderId] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const { register, formState: {errors}, handleSubmit, watch } = useForm();
     const watchedName = watch('name');
     const watchedMail = watch('mail');
     const watchedPhone = watch('phone');
 
     const submit = (data) => {
         console.log(data);
+        const db = getFirestore();
+        const batch = writeBatch(db);
+        const ordersCollection = collection(db, "orders")
+
+        const userInfo = {
+            name: data.name,
+            mail: data.mail,
+            phone: data.phone,
+            items: cartItems.map(item => ({
+                id: item.id,
+                title: item.title,
+                quantity: getQuantity(item),
+                price: item.price
+            }))
+            
+        }
+        setOrderSent(true);
+        setLoading(true);
+
+        
+        cartItems.map((item) => {
+            const itemDoc = doc(db, "products", ""+item.id);
+            const newStock = item.stock - getQuantity(item);
+            batch.update(itemDoc, { stock: newStock})
+        });
+
+        addDoc(ordersCollection, userInfo).then(function(docRef) {
+            setOrderId(docRef.id);
+            clear();
+            setLoading(false)
+            batch.commit()
+        });
+
     }
 
     return (
         <div className="checkout">
+            {cartItems.length == 0 && !orderSent ? 
+            <div className='cart-empty'>
+                <img src={cartEmpty} alt="your cart is empty" />
+                <h1>Time to start shopping!</h1>
+                <p>Fill it up with these incredible products.</p>
+                <Link to='/'>HOME PAGE</Link>
+            </div> 
+            : 
+            orderSent ? 
+                
+            loading ? <div className='loader-container'><span className="loader"></span></div>: 
+            <div className="checkout-order">
+                <h1>Successful purchase!</h1>
+                <img src={delivery} alt="" />
+                <p>The ID of your order is: {orderId}</p>
+                <Link to='/'>HOME PAGE</Link>
+            </div>
+            :
             <form className="checkout-container" onSubmit={handleSubmit(submit)}>
                 <div className="checkout-wrapper">
                     <input className={`checkout-input ${watchedName ? 'input-filled' : ''} ${errors.name ? 'input-error' : ''}`} type="text" {...register('name', {
@@ -48,6 +110,7 @@ const Checkout = () => {
                 </div>
                 <input className="checkout-submit" type="submit" value="Send" />
             </form>
+        }
         </div>
     )
 }

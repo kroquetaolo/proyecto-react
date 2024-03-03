@@ -78,7 +78,6 @@
     grid-area: item-color;
     display: flex;
     justify-self: right;
-    align-items: center;
     gap: 1rem;
     padding: .75rem;
     margin-right: .875rem;
@@ -161,9 +160,25 @@
 .item-cart-redbutton:hover {
     background-color: #dc2828 !important;
 }
+.item-cart-nostock {
+    background-color: #dc2828;
+    height: 2rem;
+    line-height: 2em;
+    padding: 0 1rem;
+    text-align: center;
+    border-radius: .375rem;
+    cursor: not-allowed;
+    transition: all 0.2s;
+}
+
+.item-cart-nostock:hover {
+    background-color: #dc282891;
+}
+
 .loader-container {
     min-height: 100vh;
 }
+
 .loader, .loader:before,
 .loader:after {
     border-radius: 50%;

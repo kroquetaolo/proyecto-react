@@ -9,7 +9,7 @@ import cartEmpty from "../../assets/cart-empty.jpeg"
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-    const {cartItems, addItem, getQuantity, getMaxStock, getTotalPrice, getTotalItems} = useContext(CartContext);
+    const {cartItems, addItem, getQuantity, getTotalPrice, getTotalItems} = useContext(CartContext);
     const [notificationActive, setNotificationActive] = useState(false);
     const maxStockReach = () => {
         if(!notificationActive){
@@ -55,7 +55,7 @@ const CartWidget = () => {
                                 ${cartItem.price}
                             </p>
                             <div className='cart-item-button'>
-                                {getQuantity(cartItem) == getMaxStock() ?
+                                {getQuantity(cartItem) == cartItem.stock ?
                                     <button className='cart-item-button-maxstock' onClick={ maxStockReach }><AiOutlineStop/></button>
                                     :
                                     <button onClick={() => addItem(cartItem, 1)}><FaPlus/></button>

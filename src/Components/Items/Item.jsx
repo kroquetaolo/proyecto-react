@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import { CartContext } from '../Context/CartContext'
 import { FaPlus, FaMinus } from "react-icons/fa6";
@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Item = ({ itemProduct }) => {
-    const {addItem, getQuantity, getMaxStock, isInCart} = useContext(CartContext);
+    const {addItem, getQuantity, isInCart} = useContext(CartContext);
     const [notificationActive, setNotificationActive] = useState(false);
     const itemNotInCart = () => {
         if(!notificationActive){
@@ -59,16 +59,21 @@ const Item = ({ itemProduct }) => {
             </div>
             
             <div className='item-cart'>
-                {getQuantity(itemProduct) == getMaxStock() ?
-                    <button className='item-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
-                    :
-                    <button onClick={() => addItem(itemProduct, 1)}> <FaPlus/> </button>
-                }
-                <p> {getQuantity(itemProduct)} </p>
-                {!isInCart(itemProduct) ? 
-                    <button className='item-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
-                    :
-                    <button onClick={() => addItem(itemProduct, -1)}> <FaMinus/> </button>
+                {itemProduct.stock === 0 ? 
+                    <div className='item-cart-nostock'> Out of Stock</div> :
+                    <React.Fragment>
+                        {getQuantity(itemProduct) == itemProduct.stock ?
+                            <button className='item-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
+                            :
+                            <button onClick={() => addItem(itemProduct, 1)}> <FaPlus/> </button>
+                        }
+                        <p> {getQuantity(itemProduct)} </p>
+                        {!isInCart(itemProduct) ? 
+                            <button className='item-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
+                            :
+                            <button onClick={() => addItem(itemProduct, -1)}> <FaMinus/> </button>
+                        }
+                    </React.Fragment>
                 }
             </div>
         </div>

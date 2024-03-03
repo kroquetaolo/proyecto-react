@@ -23,14 +23,14 @@ export function CartProvider({ children }) {
     }, [cartItems]);
 
     function addItem(item, quantity) {
-        const newItem = { ...item, quantity: quantity };
+        const newItem = {...item, quantity: quantity };
         if (isInCart(item)) {
             const updatedCartItems = cartItems.map(cartItem => {
                 if (cartItem.id === newItem.id) {
-                    if (cartItem.quantity + quantity > getMaxStock()) {
+                    if (cartItem.quantity + quantity > newItem.stock) {
                         return cartItem; 
                     } else {
-                        return { ...cartItem, quantity: cartItem.quantity + quantity };
+                        return {...cartItem, quantity: cartItem.quantity + quantity };
                     }
                 }
                 return cartItem;
@@ -60,7 +60,6 @@ export function CartProvider({ children }) {
     function clear() {
         setCartItems([]);
         localStorage.getItem('cartItems') && localStorage.removeItem('cartItems');
-        
     }
 
     function isInCart(userItem) {
@@ -71,9 +70,6 @@ export function CartProvider({ children }) {
         return isInCart(userItem) ? cartItems.find(product => product.id === userItem.id).quantity : 0;
     }
 
-    function getMaxStock() {
-        return 5;
-    }
     function getTotalPrice() {
         return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
     }
@@ -82,6 +78,6 @@ export function CartProvider({ children }) {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     }
     return (
-        <CartContext.Provider value={{cartItems, addItem, removeItem, clear, isInCart, getQuantity, getMaxStock, getTotalPrice, getTotalItems}}> {children} </CartContext.Provider>
+        <CartContext.Provider value={{cartItems, addItem, removeItem, clear, isInCart, getQuantity, getTotalPrice, getTotalItems}}> {children} </CartContext.Provider>
     );
 }
