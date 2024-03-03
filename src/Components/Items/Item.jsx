@@ -11,32 +11,25 @@ const Item = ({ itemProduct }) => {
     const [notificationActive, setNotificationActive] = useState(false);
     const itemNotInCart = () => {
         if(!notificationActive){
-            toast.warn("Item is not in cart", {
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                onClose: () => setNotificationActive(false)
-            });
+            toast.warn("Item is not in cart", {... toastOptions});
             setNotificationActive(true);
         }
     }
     const maxStockReach = () => {
-        if(!notificationActive){toast.error("Maximum stock reached", {
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                onClose: () => setNotificationActive(false)
-            });
+        if(!notificationActive){
+            toast.error("Maximum stock reached", {...toastOptions});
             setNotificationActive(true);
         }
+    }
+    const toastOptions = {
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        onClose: () => setNotificationActive(false)
     }
 
     return (
