@@ -18,34 +18,26 @@ const ItemDetailContainer = () => {
     const [imageIndex, setImageIndex] = useState({ grey: [2, 3], thumbnail: 1 });
 
     const itemNotInCart = () => {
-        if (!notificationActive) {
-            toast.warn("Item is not in cart", {
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                onClose: () => setNotificationActive(false)
-            });
+        if(!notificationActive){
+            toast.warn("Item is not in cart", {... toastOptions});
             setNotificationActive(true);
         }
     }
     const maxStockReach = () => {
-        if (!notificationActive) {
-            toast.error("Maximum stock reached", {
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                onClose: () => setNotificationActive(false)
-            });
+        if(!notificationActive){
+            toast.error("Maximum stock reached", {...toastOptions});
             setNotificationActive(true);
         }
+    }
+    const toastOptions = {
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        onClose: () => setNotificationActive(false)
     }
 
     useEffect(() => {
@@ -102,16 +94,21 @@ const ItemDetailContainer = () => {
                             <p>${product.price}</p>
                         </div>
                         <div className='item-detail-cart'>
-                            {getQuantity(product) == product.stock ?
-                                <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop /> </button>
-                                :
-                                <button onClick={() => addItem(product, 1)}> <FaPlus /> </button>
-                            }
-                            <p> {getQuantity(product)} </p>
-                            {!isInCart(product) ?
-                                <button className='item-detail-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
-                                :
-                                <button onClick={() => addItem(product, -1)}> <FaMinus /> </button>
+                            {product.stock === 0 ? 
+                            <div className='item-detail-cart-nostock'> Out of Stock</div> :
+                            <React.Fragment>
+                                {getQuantity(product) == product.stock ?
+                                    <button className='item-detail-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
+                                    :
+                                    <button className='item-detail-cart-greenbutton' onClick={() => addItem(product, 1)}> <FaPlus/> </button>
+                                }
+                                <p> {getQuantity(product)} </p>
+                                {!isInCart(product) ? 
+                                    <button className='item-detail-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
+                                    :
+                                    <button className='item-detail-cart-greenbutton' onClick={() => addItem(product, -1)}> <FaMinus/> </button>
+                                }
+                            </React.Fragment>
                             }
                         </div>
                     </div>
