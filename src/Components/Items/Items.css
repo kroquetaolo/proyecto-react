@@ -64,13 +64,12 @@
 .item-category {
     grid-area: item-category;
     justify-self: left;
-    margin-left: .9375rem;
-    margin-bottom: .625rem;
+    margin: 0 0 .625rem .9375rem;
     padding: .75rem;
     border-radius: .75rem;
+    text-transform: capitalize;
     background-color: var(--item-detail-category);
     color: var(--read-more-color);
-    text-transform: capitalize;
     box-shadow: var(--item-category-box-shadow);
 }
 
@@ -92,8 +91,7 @@
 .item-price {
     grid-area: item-price;
     justify-self: left;
-    margin-left: 1.25rem;
-    margin-bottom: .625rem;
+    margin: 0 0 .625rem 1.25rem;
 }
 
 .item-price p:nth-child(1) {
@@ -105,15 +103,14 @@
 }
 
 .item-cart {
+    grid-area: item-cart;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-area: item-cart;
     justify-self: right;
-    padding: .375rem;
-    margin-right: 1.25rem;
-    margin-bottom: .625rem;
     font-weight: bolder;
+    padding: .375rem;
+    margin: 0 1.25rem .625rem 0;
     border-radius: .75rem;
     transition: background-color .2s;
 }
@@ -124,11 +121,10 @@
     align-items: center;
     width: 2rem;
     height: 2rem;
-    border: none;
-    cursor: pointer;
-    border-radius: .375rem;
-    background-color: #28dcc891;
     margin: 0 .375rem 0 0;
+    border: none;
+    border-radius: .375rem;
+    cursor: pointer;
     transition: all 0.2s;
 }
 
@@ -141,31 +137,36 @@
 }
 
 .item-cart p {
+    height: 2rem;
+    line-height: 1.875rem;
     padding: 0 .875rem;
     border: 1px solid #a1a1a150;
     border-radius: .375rem;
-    height: 2rem;
-    line-height: 1.875rem;
 }
 
-.item-cart button:hover {
+
+.item-cart-redbutton {
+    background-color: #dc282891;
+    cursor: not-allowed;
+}
+.item-cart-greenbutton {
+    background-color: #28dcc891;
+}
+
+.item-cart-greenbutton:hover {
     background-color: #28dcc7;
 }
 
-.item-cart-redbutton {
-    background-color: #dc282891 !important;
-    cursor: not-allowed !important;
+.item-cart-redbutton:hover {
+    background-color: #dc2828;
 }
 
-.item-cart-redbutton:hover {
-    background-color: #dc2828 !important;
-}
 .item-cart-nostock {
     background-color: #dc2828;
     height: 2rem;
+    text-align: center;
     line-height: 2em;
     padding: 0 1rem;
-    text-align: center;
     border-radius: .375rem;
     cursor: not-allowed;
     transition: all 0.2s;
@@ -192,10 +193,10 @@
     position: absolute;
     top: 45%;
     left: 45%;
-    transform: translate(-50%, -50%);
     color: var(--loader-color);
     font-size: .5em;
     text-indent: -9999em;
+    transform: translate(-50%, -50%);
 }
 
 .loader:before,

@@ -65,13 +65,13 @@ const Item = ({ itemProduct }) => {
                         {getQuantity(itemProduct) == itemProduct.stock ?
                             <button className='item-cart-redbutton' onClick={maxStockReach}> <AiOutlineStop/> </button>
                             :
-                            <button onClick={() => addItem(itemProduct, 1)}> <FaPlus/> </button>
+                            <button className='item-cart-greenbutton' onClick={() => addItem(itemProduct, 1)}> <FaPlus/> </button>
                         }
                         <p> {getQuantity(itemProduct)} </p>
                         {!isInCart(itemProduct) ? 
                             <button className='item-cart-redbutton' onClick={itemNotInCart}> <AiOutlineStop /></button>
                             :
-                            <button onClick={() => addItem(itemProduct, -1)}> <FaMinus/> </button>
+                            <button className='item-cart-greenbutton' onClick={() => addItem(itemProduct, -1)}> <FaMinus/> </button>
                         }
                     </React.Fragment>
                 }
