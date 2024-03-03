@@ -2,17 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 
 export const CartContext = createContext([]);
-function notification(message) {
-    toast(message, {
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "light",
-    });
-}
+
 export function CartProvider({ children }) {
     const [cartItems, setCartItems] = useState(() => {
         const savedCartItems = localStorage.getItem('cartItems');
@@ -80,4 +70,15 @@ export function CartProvider({ children }) {
     return (
         <CartContext.Provider value={{cartItems, addItem, removeItem, clear, isInCart, getQuantity, getTotalPrice, getTotalItems}}> {children} </CartContext.Provider>
     );
+}
+function notification(message) {
+    toast(message, {
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+    });
 }

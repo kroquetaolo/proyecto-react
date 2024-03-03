@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form"
-import "./Checkout.css"
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
 import { addDoc, collection, doc, getFirestore, writeBatch } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import cartEmpty from "../../assets/cart-empty.jpeg"
 import delivery from "../../assets/delivery.jpeg"
+import "./Checkout.css"
 
 const Checkout = () => {
 
