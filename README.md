@@ -147,4 +147,3 @@ export default App;
 - Firebase Authentication is utilized to manage user authentication, which is not explicitly mentioned in the provided code.
 
 >*Developed by Benjamin Zamora*
-[1]: https://raw.githubusercontent.com/kroquetaolo/trampita/main/products.json
