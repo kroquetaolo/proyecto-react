@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './DarkMode.css';
 
+// Component for toggling dark mode on or off in the application.
 const DarkMode = () => {
     const [darkMode, setDarkMode] = useState(() => {
         const savedDarkMode = localStorage.getItem('darkMode');
@@ -12,6 +13,7 @@ const DarkMode = () => {
         document.body.classList.toggle('dark-mode-off', darkMode);
     }, [darkMode]);
 
+    // Function to toggle the dark mode state, by default the darkmode is on.
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };

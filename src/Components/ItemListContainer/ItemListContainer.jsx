@@ -6,11 +6,13 @@ import { NavLink } from 'react-router-dom';
 import { BiCategory } from "react-icons/bi";
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 
+// Component for displaying a list of items based on category and the categories.
 const ItemListContainer = () => {
     const { categoryID } = useParams();
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    //Additionally this const, it can be replaced by a fetch or getDocs.
     const categories = ["Men's Clothing", "Women's Clothing", "Jewelry"];
 
     useEffect(() => {

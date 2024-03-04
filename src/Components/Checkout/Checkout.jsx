@@ -7,6 +7,7 @@ import cartEmpty from "../../assets/cart-empty.jpeg"
 import delivery from "../../assets/delivery.jpeg"
 import "./Checkout.css"
 
+// Checkout component responsible for handling the checkout process.
 const Checkout = () => {
 
     const {cartItems, getQuantity, clear} = useContext(CartContext);
@@ -20,7 +21,7 @@ const Checkout = () => {
     const watchedPhone = watch('phone');
 
     const submit = (data) => {
-        console.log(data);
+
         const db = getFirestore();
         const batch = writeBatch(db);
         const ordersCollection = collection(db, "orders")
@@ -37,23 +38,27 @@ const Checkout = () => {
             }))
             
         }
+
         setOrderSent(true);
         setLoading(true);
 
-        
+        // Updating stock in Firestore.
         cartItems.map((item) => {
             const itemDoc = doc(db, "products", ""+item.id);
             const newStock = item.stock - getQuantity(item);
             batch.update(itemDoc, { stock: newStock})
         });
 
+        // Adding order document to Firestore collection.
         addDoc(ordersCollection, userInfo).then(function(docRef) {
+
+            // Setting order ID, clearing cart, and committing batch.
             setOrderId(docRef.id);
             clear();
             setLoading(false)
             batch.commit()
-        });
 
+        });
     }
 
     return (

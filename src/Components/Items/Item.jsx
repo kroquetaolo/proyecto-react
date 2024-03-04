@@ -6,9 +6,14 @@ import { AiOutlineStop } from "react-icons/ai";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Component for rendering a single product from a list of products.
 const Item = ({ itemProduct }) => {
+    
+    // Accessing cart functionalities from CartContext.
     const {addItem, getQuantity, isInCart} = useContext(CartContext);
+    // To prevent spamming of notifications for maximum stock and items not in the cart.
     const [notificationActive, setNotificationActive] = useState(false);
+
     const itemNotInCart = () => {
         if(!notificationActive){
             toast.warn("Item is not in cart", {... toastOptions});
@@ -38,7 +43,7 @@ const Item = ({ itemProduct }) => {
                     <img src={`/products/${itemProduct.category}/01${itemProduct.title}.jpeg`} alt={itemProduct.title}/>
                 </Link>
             <div className='item-title'>
-                <h3>{shortText(itemProduct.title, 45)}</h3>
+                <h3>{itemProduct.title}</h3>
                 <p>{shortText(itemProduct.description, 50)} <Link to={`/item/${itemProduct.id}`}>read more</Link></p>
             </div>
             <div className='item-category'>{itemProduct.category}</div>
@@ -72,7 +77,7 @@ const Item = ({ itemProduct }) => {
         </div>
     );
 };
-
+// Function to shorten the item description text for improved aesthetics.
 function shortText(texto, int) {
     return texto.length > int ? `${texto.substring(0, int)}...` : texto;
 }

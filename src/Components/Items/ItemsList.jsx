@@ -1,6 +1,7 @@
 import Item from './Item';
 import './Items.css'
 
+// Component for rendering a list of items.
 const ItemsList = ({ productsList }) => {
 
     return (

@@ -7,14 +7,16 @@ import { AiOutlineStop } from 'react-icons/ai';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
+// Component for displaying details of a specific item.
 const ItemDetailContainer = () => {
     const { itemID } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Accessing cart functionalities from CartContext.
     const { addItem, getQuantity, isInCart } = useContext(CartContext);
     const [notificationActive, setNotificationActive] = useState(false);
-
+    // State for managing image index.
     const [imageIndex, setImageIndex] = useState({ grey: [2, 3], thumbnail: 1 });
 
     const itemNotInCart = () => {
@@ -40,6 +42,7 @@ const ItemDetailContainer = () => {
         onClose: () => setNotificationActive(false)
     }
 
+    //Here we retrieve a single item from Firestore based on its ID.
     useEffect(() => {
         const db = getFirestore();
         const document = doc(db, "products", itemID);
@@ -49,6 +52,7 @@ const ItemDetailContainer = () => {
         })
     }, [itemID]);
 
+    // Function to change the displayed image index.
     function changeIndex(index) {
         const indexMap = {
             "2,3": { 2: { grey: [1, 3], thumbnail: 2 }, 3: { grey: [2, 1], thumbnail: 3 } },
