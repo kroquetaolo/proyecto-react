@@ -22,8 +22,10 @@ npm install
 #Run the application
 npm run dev
 ```
-##.env.local format
+## .env.local format
+
 This needs to be configured so that the products are displayed.
+
 ```
 VITE_SOME_API_KEY=
 VITE_SOME_AUTH_DOMAIN=
@@ -49,7 +51,7 @@ price: {number}
 stock: {number}
 title: {string}
 ```
-##A little gift
+## A little gift
 To use this, you must have configured your Firestore keys in .env.local and you just have to replace the App.jsx with this one and press the button on the website.
 ```javascript
 import { useEffect, useState } from 'react';
