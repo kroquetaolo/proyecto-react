@@ -42,15 +42,16 @@ This is the required format for creating a product.
 Create a collection named "products"
 Add a document with an id
 
-Follow this format for the fields
-category: {string}
-color: {string}
-description: {string}
-id: {number} #IMPORTANT must be equal to the document ID
-title: {string}
-price: {number}
-stock: {number}
-title: {string}
+Follow this format for the fields:
+
+- category: {string}
+- color: {string}
+- description: {string}
+- id: {number} #IMPORTANT must be equal to the document ID
+- title: {string}
+- price: {number}
+- stock: {number}
+- title: {string}
 
 Json example with the fomat:
 
