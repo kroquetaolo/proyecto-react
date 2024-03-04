@@ -54,6 +54,7 @@ Follow this format for the fields:
 - title: {string}
 
 [Detailed json example](http://https://raw.githubusercontent.com/kroquetaolo/trampita/main/products.json "Detailed example")
+ 
 Little json example with the fomat:
 
 ```json
