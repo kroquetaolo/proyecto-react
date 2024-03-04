@@ -26,7 +26,7 @@ npm run dev
 
 This needs to be configured so that the products are displayed.
 
-```
+```env
 VITE_SOME_API_KEY=
 VITE_SOME_AUTH_DOMAIN=
 VITE_SOME_PROJECT_ID=
