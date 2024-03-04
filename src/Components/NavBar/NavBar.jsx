@@ -10,16 +10,16 @@ const NavBar = () => {
 
     const {cartItems} = useContext(CartContext);
     return (
-        <header className='navBarContainer'>
-            <div className='navBarLogo'>
+        <header className='nav-bar-container'>
+            <div className='nav-bar-logo'>
                 <Link to='/'> <img src={logo} alt="logo"/> </Link>
-                <Link className='navBarLogoText' to='/'> Unique Nock </Link>
+                <Link className='nav-bar-logo-text' to='/'> Unique Nock </Link>
             </div>
-            <div className='navBarControls'>
+            <div className='nav-bar-controls'>
                 <DarkMode/>
-                <div className="cartIcon"> 
-                    <p className='cartNumber'>{cartItems.length}</p>
-                    <Link to='/cart/' className='cartIcon'>
+                <div className="cart-icon"> 
+                    <p className='cart-number'>{cartItems.length}</p>
+                    <Link to='/cart/' className='cart-icon'>
                         <LuShoppingCart/>
                     </Link> 
                 </div>
