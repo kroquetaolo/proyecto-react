@@ -1,6 +1,6 @@
-<img src="https://raw.githubusercontent.com/kroquetaolo/proyecto-react/main/src/assets/logo.png" alt="Unique Nook Logo" width="200">
 
-# Welcome to Unique Nook
+
+# <img src="https://raw.githubusercontent.com/kroquetaolo/proyecto-react/main/src/assets/logo.png" alt="Unique Nook Logo" width="60"> Welcome to Unique Nook
  A web application developed for CoderHouse Academy as the final project in the ReactJS course.
 
 ## Table of Contents
