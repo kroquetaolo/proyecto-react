@@ -38,11 +38,11 @@ VITE_SOME_MEASUREMENT_IT=
 ```
 ## Instructions for firebase
 This is the required format for creating a product.
-```
-#Create a collection named "products"
-#Add a document with an id
 
-#Follow this format for the fields
+Create a collection named "products"
+Add a document with an id
+
+Follow this format for the fields
 category: {string}
 color: {string}
 description: {string}
@@ -51,6 +51,21 @@ title: {string}
 price: {number}
 stock: {number}
 title: {string}
+
+Json example with the fomat:
+
+```json
+[
+    {
+        "id": 1,
+        "category": "Men's Clothing",
+        "price": 29.99,
+        "title": "Striped Cotton Shirt",
+        "description": "This stylish striped cotton shirt is perfect for any formal or casual occasion. Its classic design and comfortable fabric make it a versatile choice for your wardrobe.",
+        "color": "#336699",
+        "stock": 15
+    }
+]
 ```
 ## A little gift 
 This will create 18 products in your Firebase with just one click. You can skip all the instructions from the previous point. To use this, you must have configured your Firestore keys in .env.local and you just have to replace the App.jsx with this one and press the button on the website.
