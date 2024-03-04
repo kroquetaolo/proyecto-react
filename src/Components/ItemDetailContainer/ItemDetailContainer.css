@@ -114,8 +114,10 @@
     grid-area: item-detail-color;
     display: flex;
     justify-self: left;
+    align-items: center;
     gap: 1.5rem;
     padding: .75rem;
+    margin-bottom: .625rem;
 }
 .item-detail-color-text {
     font-size: 1.2em;
@@ -123,9 +125,10 @@
 }
 
 .item-detail-color-hex {
-    width: 1.625rem;
-    height: 1.625rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
+    border: 2px solid var(--light-secundary-color);
 }
 
 .item-detail-price {
