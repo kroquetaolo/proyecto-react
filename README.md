@@ -52,7 +52,9 @@ price: {number}
 stock: {number}
 title: {string}
 ```
-## A little gift
+## A little gift 
+This will create 18 products in your Firebase with just one click. You can skip all the instructions from the previous point.
+
 To use this, you must have configured your Firestore keys in .env.local and you just have to replace the App.jsx with this one and press the button on the website.
 ```javascript
 import { useEffect, useState } from 'react';
