@@ -35,7 +35,7 @@ VITE_SOME_MESSAGIN_SENDER_ID=
 VITE_SOME_APP_ID=
 VITE_SOME_MEASUREMENT_IT=
 ```
-##Instructions for firebase
+## Instructions for firebase
 This is the required format for creating a product.
 ```
 #Create a collection named "products"
