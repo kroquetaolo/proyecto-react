@@ -53,7 +53,8 @@ Follow this format for the fields:
 - stock: {number}
 - title: {string}
 
-Json example with the fomat:
+[Detailed json example](http://https://raw.githubusercontent.com/kroquetaolo/trampita/main/products.json "Detailed example")
+Little json example with the fomat:
 
 ```json
 [
@@ -68,6 +69,7 @@ Json example with the fomat:
     }
 ]
 ```
+
 ## A little gift 
 This will create 18 products in your Firebase with just one click. You can skip all the instructions from the previous point. To use this, you must have configured your Firestore keys in .env.local and you just have to replace the App.jsx with this one and press the button on the website.
 ```javascript
@@ -134,3 +136,4 @@ export default App;
 - Firebase Authentication is utilized to manage user authentication, which is not explicitly mentioned in the provided code.
 
 >*Developed by Benjamin Zamora*
+[1]: https://raw.githubusercontent.com/kroquetaolo/trampita/main/products.json
