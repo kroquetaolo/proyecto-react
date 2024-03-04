@@ -1,7 +1,4 @@
-<div style="display: flex; flex-direction: row; align-items: center;">
-    <img src="https://raw.githubusercontent.com/kroquetaolo/proyecto-react/main/src/assets/logo.png" alt="Unique Nook Logo" width="200">
-    <p style="text-align: left; margin-top: 10px;">*a react application.*</p>
-</div>
+<img src="https://raw.githubusercontent.com/kroquetaolo/proyecto-react/main/src/assets/logo.png" alt="Unique Nook Logo" width="200">
 
 # Welcome to Unique Nook
  A web application developed for CoderHouse Academy as the final project in the ReactJS course.
