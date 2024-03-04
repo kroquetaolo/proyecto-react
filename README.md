@@ -3,6 +3,17 @@
 # Welcome to Unique Nook,
  A web application developed for CoderHouse Academy as the final project in the ReactJS course.
 
+## Table of Contents
+
+1. [Tools Used in the Application](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#tools-used-in-the-application)
+2. [Installation Instructions](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#installation-instructions)
+3. [Format of .env.local](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#format-of-envlocal)
+4. [Instructions for Firebase](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#instructions-for-firebase)
+5. [Detailed Example](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#detailed-example)
+6. [A Little Gift](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#a-little-gift)
+7. [Overview of Application Features](https://github.com/kroquetaolo/proyecto-react?tab=readme-ov-file#overview-of-application-features)
+
+
 ## Tools used in this application
 Click on the image for more detailed information about the tool.
 
