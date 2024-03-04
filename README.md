@@ -3,7 +3,8 @@
 # Welcome to Unique Nook,
  A web application developed for CoderHouse Academy as the final project in the ReactJS course.
 
-## Dependencies
+## Tools used in this application
+Click on the image for more detailed information about the tool.
 
 | React | React Icons | Toastify | HTML | CSS | Vite | React Hook Form | Firebase |
 | ----- | ---------- | -------- | ---- | --- | ----| --------------- | -------- |
