@@ -18,7 +18,7 @@ Click on the image for more detailed information about the tool.
 | ----- | ---------- | -------- | ---- | --- | ----| --------------- | -------- |
 | <p align="center"><a href="https://reactjs.org/"><img src="https://imgur.com/D0LgId0.png" alt="React" width="50"></a></p> | <p align="center"><a href="https://react-icons.github.io/react-icons/"><img src="https://raw.githubusercontent.com/react-icons/react-icons/master/react-icons.svg" alt="react icons Logo" width="50"></a></p> | <p align="center"><a href="https://github.com/fkhadra/react-toastify"><img src="https://fkhadra.github.io/react-toastify/img/favicon.ico" alt="Toastify " width="50"></a></p> | <p align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://imgur.com/JC4hUSh.png" alt="HTML " width="50"></a></p> | <p align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://imgur.com/MzztIsF.png" alt="css " width="50"></a></p> | <p align="center"><a href="https://vitejs.dev/"><img src="https://vitejs.dev/logo-with-shadow.png" alt="vite " width="50"></a></p> | <p align="center"><a href="https://react-hook-form.com/"><img src="https://react-hook-form.com/images/logo/react-hook-form-logo-only.png" alt="react form" width="50"></a></p> | <p align="center"><a href="https://firebase.google.com/"><img src="https://www.gstatic.com/devrel-devsite/prod/v50a9748f336f0601961fb23638b43fbbc8f87f50f5f0aa83e2751247a72fbd3b/firebase/images/favicon.png" alt="Firebase" width="50"></a></p> |
 
-## How to installation
+## How to instal
 ```bash
 #Clone the repository.
 git clone https://github.com/kroquetaolo/proyecto-react.git [folder_name]
